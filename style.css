@@ -1,0 +1,44 @@
+html {
+}
+
+body {
+    background-color: rgb(223, 215, 184);
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: cadetblue;
+    margin-bottom: 10px;
+    width: 80%;
+    margin: auto;
+}
+
+.bookForm {
+    /* display: none; */
+    background-color: lightcoral;
+    padding: 5px;    
+    border: 2px solid darkslategray;
+}
+
+form {
+    margin: auto;
+    padding: auto;
+}
+
+table, th, td {
+    border: 1px solid olive;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    margin-top: 50px;
+    width: 80%;
+    margin: auto;
+    background-color: rgb(166, 212, 160)
+
+}
+
