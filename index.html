@@ -6,25 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7d13f91df5.js"></script>
+    
 </head>
 <body>    
     <header><h1>My Library</h1>
+        
+        <input type="button" value="Add Book" class="showBookForm">
+    </header>
         <div class="bookForm">
-            <form action="" method="post" onsubmit="addBookToLibrary(this)">
-                Title: <input id="addTitle" value="">
-                Author: <input id="addAuthor" value="">
-                Pages: <input id="addPages" value="">
+            <form>
+                <span class="gridTitle"> Title: <input id="addTitle" value="" size="15" required></span>
+                <span class="gridAuthor"> Author: <input id="addAuthor" value="" size="15"></span>
+                <span class="gridPages">Pages: <input id="addPages" value="" size="15"></span>
                 <select name="CheckRead" id="addRead">
                     <option value="true">Read</option>
-                    <option value="false">Have not Read</option>
+                    <option value="false">Unread</option>
                 </select>   
-                <input type="button" value="Add Book" class="addBookBTN">
-                <span onclick="this.parentElement.style.display='none'">&times;</span>             
+                <input type="button" value="Add" class="addBookBTN" >           
             </form>
         </div>
-        
-        <input type="button" value="Add Book">
-    </header>
+        <h2 class="warning">Invalid book information please recheck your inputs.</h2>
     <table>
         <thead>
             <th id="title">Title</th>

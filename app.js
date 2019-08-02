@@ -5,15 +5,18 @@ const addPages = document.getElementById('addPages');
 const addRead = document.getElementById('addRead');
 const addButton = document.querySelector('.addBookBTN');
 const removeButton = document.querySelector('.remove');
+const toggleAddBook = document.querySelector('.showBookForm')
+const addForm = document.querySelector('.bookForm')
 
 addButton.addEventListener('click', addBookBar)
+toggleAddBook.addEventListener('click', showAddBook)
 
 
 let myLibrary = [];
 
-addBooktoLibrary('larry', 'larry', 123, true);
-addBooktoLibrary('garry', 'garry', 234, false);
-addBooktoLibrary('marry', 'marry', 345, false);
+addBooktoLibrary('The Hobbit', 'J.R.R. Tolkien', 1234, true);
+addBooktoLibrary('Lord of the Rings', 'J.R.R. Tolkien', 1234, false);
+addBooktoLibrary('The Way of Kings', 'Brandon Sanderson', 12345, true);
 
 
 
@@ -48,11 +51,11 @@ function render() {
                 readButton.type = 'button';
                 readButton.addEventListener('click',() => toggleRead(newRow))           
                                 
-                if (element[key]) {
+                if (element[key]) {                    
                     readButton.value = 'Read';
                     readButton.setAttribute('class', 'bookRead');
                 } else {
-                    readButton.value = 'UnRead';
+                    readButton.value = 'Unread';
                     readButton.setAttribute('class', 'bookUnRead');
                 }
                 newData.appendChild(readButton);
@@ -74,27 +77,26 @@ function clearTable() {
     }
 }
 
-// function makeReadButton(this) {
-//     let readButton = document.createElement('input');
-//     readButton.type = 'button';
-    
-//     if (this.value == true) {
-//         readButton.value = 'Read';
-//         console.log('no')
-//         readButton.setAttribute('class', 'bookRead');
-//     } else {
-//         readButton.value = 'Not Read';
-//         readButton.setAttribute('class', 'bookUnRead');
-//     }
-//     this.innerHTML = readButton;
-// }
 
 function addBookBar() {
     let newTitle = addTitle.value
     let newAuthor = addAuthor.value
-    let newPages = addPages.value
-    let newRead = addRead.value
+    let newPages = addPages.value    
+    let newRead;
+    if (addRead.value === 'true') {
+        newRead = true;
+    } else {
+        newRead = false;    
+    }
+    //Check if input valid
+    if (newTitle === '' || hasNumbers(newAuthor) || hasLetters(newPages)) {
+        document.querySelector('.warning').setAttribute('style', 'display:block')
+        return
+    }
+
+    document.querySelector('.warning').setAttribute('style', 'display:none')
     addBooktoLibrary(newTitle, newAuthor, newPages, newRead)
+    showAddBook();
 }
 
 function addRemoveButton() {
@@ -103,8 +105,8 @@ function addRemoveButton() {
     for(let i = 0; i < ammount; i ++) {
         let tableRow = document.querySelector('.book_'+ i);
         let makeTD = document.createElement('td');
-        let deleteButton = document.createElement('input');
-        deleteButton.type = 'button';
+        let deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
         deleteButton.value = 'Remove';
         deleteButton.addEventListener('click',() => deleteBook(tableRow))
         makeTD.appendChild(deleteButton)
@@ -127,7 +129,7 @@ function toggleRead(element) {
      
     if(readStatus) {
         myLibrary[bookIndex].read = false;
-        button.setAttribute('class', 'UnRead')
+        button.setAttribute('class', 'Unread')
         button.setAttribute('value', 'Unread')
     } else {
         myLibrary[bookIndex].read = true;
@@ -136,3 +138,21 @@ function toggleRead(element) {
     }
     
 }
+
+function showAddBook() {
+
+    if (addForm.style.display == 'flex') {
+        addForm.setAttribute('style', 'display: none');
+    } else {
+        addForm.setAttribute('style', 'display: flex');
+    }    
+}
+
+function hasLetters(string) {
+    var regex = /\D/g;
+    return regex.test(string);
+}
+function hasNumbers(string) {
+    var regex = /\d/g;
+    return regex.test(string);
+}  

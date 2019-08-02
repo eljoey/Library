@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(223, 215, 184);
+    background-color: rgb(95, 128, 160);
 }
 
 header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: cadetblue;
     margin-bottom: 10px;
@@ -14,16 +14,45 @@ header {
     border-top-right-radius: 15px;
 }
 
-.bookForm {
-    /* display: none; */
-    background-color: rgb(160, 95, 95);
-    padding: 5px;    
-    border: 2px solid darkslategray;
+h1 {
+    margin: 40px;
 }
 
-form {
+.showBookForm {
+    margin: 40px;
+}
+
+
+
+.bookForm {
+    position: static;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80%;
     margin: auto;
-    padding: auto;
+    background-color: rgb(160, 95, 95);
+}
+.warning {
+    display: none;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: darkred;
+    background-color: rgb(160, 95, 95);
+}
+form {
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.addBookBTN {
+    width: 15%;
+}
+
+select {
+    width: 15%;
 }
 
 table, th, td {
@@ -33,11 +62,15 @@ table, th, td {
     padding: 10px;
 }
 
+th {
+    background-color: rgb(57, 134, 134);
+}
+
 table {
     margin-top: 50px;
     width: 80%;
     margin: auto;
-    background-color: rgb(128, 160, 95);
+    background-color: rgb(95, 160, 128);
 
 }
 
