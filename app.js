@@ -11,14 +11,11 @@ const addForm = document.querySelector('.bookForm')
 addButton.addEventListener('click', addBookBar)
 toggleAddBook.addEventListener('click', showAddBook)
 
-
 let myLibrary = [];
 
 addBooktoLibrary('The Hobbit', 'J.R.R. Tolkien', 1234, true);
 addBooktoLibrary('Lord of the Rings', 'J.R.R. Tolkien', 1234, false);
 addBooktoLibrary('The Way of Kings', 'Brandon Sanderson', 12345, true);
-
-
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -34,8 +31,7 @@ function addBooktoLibrary(title, author, pages, read) {
     render();
 }
 
-function render() {
-    
+function render() {    
     //Grabs each book
     myLibrary.forEach(element => {
         let newRow = document.createElement('tr');
@@ -77,7 +73,6 @@ function clearTable() {
     }
 }
 
-
 function addBookBar() {
     let newTitle = addTitle.value
     let newAuthor = addAuthor.value
@@ -88,13 +83,13 @@ function addBookBar() {
     } else {
         newRead = false;    
     }
-    //Check if input valid
+    //If inputs invalid returns
     if (newTitle === '' || hasNumbers(newAuthor) || hasLetters(newPages)) {
         document.querySelector('.warning').setAttribute('style', 'display:block')
         return
     }
 
-    document.querySelector('.warning').setAttribute('style', 'display:none')
+    document.querySelector('.warning').setAttribute('style', 'display:none')    
     addBooktoLibrary(newTitle, newAuthor, newPages, newRead)
     showAddBook();
 }
@@ -135,12 +130,10 @@ function toggleRead(element) {
         myLibrary[bookIndex].read = true;
         button.setAttribute('class', 'Read')
         button.setAttribute('value', 'Read')        
-    }
-    
+    }    
 }
 
 function showAddBook() {
-
     if (addForm.style.display == 'flex') {
         addForm.setAttribute('style', 'display: none');
     } else {
