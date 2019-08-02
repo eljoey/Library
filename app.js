@@ -46,7 +46,6 @@ function render() {
 
                 if (element[key]) {
                     readButton.value = 'Read';
-                    console.log('no')
                     readButton.setAttribute('class', 'bookRead');
                 } else {
                     readButton.value = 'Not Read';
@@ -59,15 +58,9 @@ function render() {
             newRow.appendChild(newData);
             }            
         }
-// add remove button
-        let deleteButton = document.createElement('input');
-        deleteButton.type = 'button';
-        deleteButton.value = 'Remove';
-        newRow.appendChild(deleteButton);
-        table.appendChild(newRow);
-        
-        
+        table.appendChild(newRow); 
     });
+    addRemoveButton();
 }
 
 function clearTable() {
@@ -76,11 +69,11 @@ function clearTable() {
     }
 }
 
-// function makeReadButton(boolean) {
+// function makeReadButton(this) {
 //     let readButton = document.createElement('input');
 //     readButton.type = 'button';
     
-//     if (boolean == true) {
+//     if (this.value == true) {
 //         readButton.value = 'Read';
 //         console.log('no')
 //         readButton.setAttribute('class', 'bookRead');
@@ -88,7 +81,7 @@ function clearTable() {
 //         readButton.value = 'Not Read';
 //         readButton.setAttribute('class', 'bookUnRead');
 //     }
-//     .innerHTML = readButton;
+//     this.innerHTML = readButton;
 // }
 
 function addBookBar() {
@@ -98,3 +91,27 @@ function addBookBar() {
     let newRead = addRead.value
     addBooktoLibrary(newTitle, newAuthor, newPages, newRead)
 }
+
+function addRemoveButton() {
+    let ammount = myLibrary.length
+
+    for(let i = 0; i < ammount; i ++) {
+        let tableRow = document.querySelector('.book_'+ i);
+        let makeTD = document.createElement('td');
+        let deleteButton = document.createElement('input');
+        deleteButton.type = 'button';
+        deleteButton.value = 'Remove';
+        deleteButton.addEventListener('click',() => deleteBook(tableRow))
+        makeTD.appendChild(deleteButton)
+        tableRow.appendChild(makeTD);
+    }
+}
+
+function deleteBook(element) {
+    let bookIndex = element.className.slice(5,6);
+
+    myLibrary.splice(bookIndex, 1);
+    clearTable();
+    render();
+}
+

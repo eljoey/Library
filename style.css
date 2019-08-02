@@ -1,6 +1,3 @@
-html {
-}
-
 body {
     background-color: rgb(223, 215, 184);
 }
@@ -13,11 +10,13 @@ header {
     margin-bottom: 10px;
     width: 80%;
     margin: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .bookForm {
     /* display: none; */
-    background-color: lightcoral;
+    background-color: rgb(160, 95, 95);
     padding: 5px;    
     border: 2px solid darkslategray;
 }
@@ -38,7 +37,7 @@ table {
     margin-top: 50px;
     width: 80%;
     margin: auto;
-    background-color: rgb(166, 212, 160)
+    background-color: rgb(128, 160, 95);
 
 }
 
