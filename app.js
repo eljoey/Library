@@ -95,9 +95,9 @@ function addBookBar() {
 }
 
 function addRemoveButton() {
-    let ammount = myLibrary.length
+    let amount = myLibrary.length
 
-    for(let i = 0; i < ammount; i ++) {
+    for(let i = 0; i < amount; i ++) {
         let tableRow = document.querySelector('.book_'+ i);
         let makeTD = document.createElement('td');
         let deleteButton = document.createElement('button');
