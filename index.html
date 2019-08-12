@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Library</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/7d13f91df5.js"></script>    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Library</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/7d13f91df5.js"></script>
 </head>
-<body>    
-    <header><h1>My Library</h1>        
-        <input type="button" value="Add Book" class="showBookForm">
-    </header>
-        <div class="bookForm">
-            <form>
-                <span class="gridTitle"> Title: <input id="addTitle" value="" size="15" required></span>
-                <span class="gridAuthor"> Author: <input id="addAuthor" value="" size="15"></span>
-                <span class="gridPages">Pages: <input id="addPages" value="" size="15"></span>
-                <select name="CheckRead" id="addRead">
-                    <option value="true">Read</option>
-                    <option value="false">Unread</option>
-                </select>   
-                <input type="button" value="Add" class="addBookBTN">           
-            </form>
-        </div>
-        <h2 class="warning">Invalid book information please recheck your inputs.</h2>
-    <table>
-        <thead>
-            <th id="title">Title</th>
-            <th id="author">Author</th>
-            <th id="pages">Pages</th>
-            <th id="read">Read</th>
-            <th id="remove">Remove</th>
-        </thead>
-        <tbody>
-        </tbody>
-     </table>
-    <script src="app.js"></script>
+
+<body>
+  <header>
+    <h1>My Library</h1>
+    <input type="button" value="Add Book" class="showBookForm" />
+  </header>
+  <div class="bookForm">
+    <form>
+      <div>
+        <label class="gridTitle"> Title: </label>
+        <input id="addTitle" value="" size="12" required />
+      </div>
+      <div>
+        <label class="gridAuthor"> Author: </label>
+        <input id="addAuthor" value="" size="12" required pattern="[a-zA-Z]+" />
+      </div>
+      <div>
+        <label class="gridPages"> Pages: </label>
+        <input id="addPages" value="" size="5" required pattern="\d+" />
+      </div>
+      <select name="CheckRead" id="addRead">
+        <option value="true" size 5>Read</option>
+        <option value="false">Unread</option>
+      </select>
+      <button type="button" class="addBookBTN">Add</button>
+    </form>
+  </div>
+  <h2 class="warning">
+    Invalid book information please recheck your inputs.
+  </h2>
+  <table>
+    <thead>
+      <th id="title">Title</th>
+      <th id="author">Author</th>
+      <th id="pages">Pages</th>
+      <th id="read">Read</th>
+      <th id="remove">Remove</th>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script src="app.js"></script>
 </body>
+
 </html>
